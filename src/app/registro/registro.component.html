@@ -1,0 +1,111 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class=" shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <img id="logoRegistro" src="../../assets/PadelGo.jpeg" >
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">¡Registrate a Padelgo!</h3>
+              <form [formGroup]="formRegistro" (ngSubmit)="registrarse()">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName">Nombre</label>
+                      <input formControlName="nombre" type="text" class="form-control" placeholder="Francisco" />
+  
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label">Apellido</label>
+                      <input formControlName="apellido" type="text" class="form-control" placeholder="Lizana" />
+  
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label">Rut</label>
+                      <input formControlName="rut" type="text" class="form-control" placeholder="11.111.111-1" />
+  
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <h6 class="mb-2 pb-1">Género </h6>
+  
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="femaleGender">Femenino</label>
+                      <input formControlName="sexo" class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                        value="Femenino" checked />
+  
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="maleGender">Masculino</label>
+                      <input formControlName="sexo" class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                        value="Masculino" />
+  
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="otherGender">Otro</label>
+                      <input formControlName="sexo" class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                        value="Otro" />
+  
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="emailAddress">Correo Electrónico</label>
+                      <input formControlName="mail" type="text" class="form-control" placeholder="francisco@lizana.cl" />
+  
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+  
+  
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                    <label class="form-label loginLabel">Contraseña</label>
+                    <input formControlName="password" type="password" class="form-control loginInput"
+                      placeholder="**********" />
+                  </div>
+                  
+                  <div class="col-md-6 mb-4 pb-2">
+                    <label class="form-label loginLabel">Repita Contraseña</label>
+                    <input type="password" class="form-control loginInput"
+                      placeholder="**********" />
+                  </div>
+                </div>
+  
+                <div class="mt-4 pt-2">
+                  <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

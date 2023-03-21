@@ -1,0 +1,61 @@
+<div class="col-md-12">
+    <app-header></app-header>
+    <div class="mt-3 ms-5 me-5">
+        <h2>Partidas</h2>
+        <div class="container ms-xl-2 mt-3">
+            <h4>Nueva Partida</h4>
+            <div class="container mt-3 mb-3 ms-0">
+                <div class="row">
+                    <div class="col">
+                        <a routerLink="/formulario-partida" class="btn btn-primary">Crear partida</a>
+                    </div>
+                </div>
+            </div>
+            <h4>Buscar Partida</h4>
+            <div class="container alert-secondary mt-4 ms-0 mb-3">
+                <div class="row pt-2 pb-2">
+                    <div class="form-group row">
+                        <label for="fecha" class="col-12 col-lg-1 col-form-label" style="width:70px;font-size:large;"><b>Fechas:</b></label>
+                        <div class="col-12 col-lg-3">
+                          <input type="date" [(ngModel)]="this.today" (change)="filtrarPorFecha(this.today)" class="form-control" id="fecha">
+                        </div>
+                        <label for="Categoria" class="col-12 col-lg-1 col-form-label" style="width:95px;font-size:large;"><b>Categoría:</b></label>
+                        <div class="col-12 col-lg-3">
+                          <select class="form-select" id="Categoria" [(ngModel)]="this.categoria" (change)="filtrarPorFecha(this.today)">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option> 
+                            <option value="mixto">Mixto</option>
+                          </select>
+                        </div>
+                        <label for="Nivel" class="col-12 col-lg-1 col-form-label" style="width:70px;font-size:large;"><b>Nivel:</b></label>
+                        <div class="col-12 col-lg-2 col-xl-3">
+                            <select class="form-select" id="Nivel" [(ngModel)]="this.nivel" (change)="filtrarPorFecha(this.today)">
+                                <option value="6">Sexta</option>
+                                <option value="5">Quinta</option>
+                                <option value="4">Cuarta</option>
+                                <option value="3">Tercera</option>
+                                <option value="1">Open</option>
+                              </select>
+                        </div>
+                    </div> 
+                </div> 
+            </div>
+            <div *ngFor="let partida of this.partidaService.partidas" class="container bg-primary mt-4 ms-0 pt-3 pb-3">
+                <div class="row">
+                    <h3 class="text-white col-sm-3 mb-3 ps-lg-3">Cancha {{partida.idCancha}}: {{partida.horaInicio}}</h3>
+                    <div class="col-sm-3 mb-3">
+                        <img *ngIf="partida.jugador1!=null" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" height="40px" class="me-2">
+                        <img *ngIf="partida.jugador2!=null" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" height="40px" class="me-2">
+                        <img *ngIf="partida.jugador3!=null" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" height="40px" class="me-2">
+                        <img *ngIf="partida.jugador4!=null" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" height="40px" >
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" [disabled]="partida.jugador4!=null || partida.jugador1===usuario || partida.jugador2===usuario || partida.jugador3===usuario || partida.jugador4===usuario" class="btn btn-secondary" (click)="buscarJugador(partida.jugador2,partida.jugador3,partida.jugador4,partida.id)" >Ingresar</button>
+                    </div>
+            </div>
+        </div>  
+    </div>
+        
+    <br>
+    <app-footer></app-footer>
+</div>

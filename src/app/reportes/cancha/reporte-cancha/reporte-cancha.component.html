@@ -1,0 +1,97 @@
+<div class="col-md-12">
+  <app-header-admin></app-header-admin>
+  <div class="mt-3 ms-5 me-5">
+  <div style="margin-left: 30px">
+    <h2>Estadísticas</h2>
+  </div>
+  <div class="divReserva">
+    <form class="form-group row">
+      <label for="colFormLabel" class="col-sm-1 col-form-label" style="text-align: right; font-size: large;"><b>Desde :
+        </b></label>
+      <div class="col-sm-2">
+        <input class="form-control" name="date" [(ngModel)]="this.desde" type="date">
+      </div>
+      <label for="colFormLabel" class="col-sm-1 col-form-label"
+        style="text-align: right; font-size: large;"><b>Hasta :</b></label>
+      <div class="col-sm-2">
+        <input class="form-control" name="date"[(ngModel)]="this.hasta"  type="date">
+      </div>
+      <label for="colFormLabel" class="col-sm-1 col-form-label" style="text-align: right; font-size: large;"><b>Cancha :
+        </b></label>
+
+      <div class="col-sm-2">
+        <select name="select" class="form-control" [(ngModel)]="this.valueCombo" >
+          <option>{{this.reporteService.canchas[0].id}}</option>
+          <option *ngFor="let p of this.reporteService.canchas.slice(1,this.reporteService.canchas.length)"> {{p.id}} </option>
+
+
+        </select>
+      </div>
+      <button class=" col-sm-2 btn btn-primary" (click)="comprobar()"> Generar</button>
+
+    </form>
+  </div>
+  <br>
+  <div class="row" style="margin-left: 20px">
+    <div *ngIf =!this.visible>
+      <h6><b>No se encontraron partidas en el periodo de fechas señalado</b></h6>
+    </div>
+    <div class="col-sm-8" *ngIf = this.visible>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0" id="export">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Nivel</th>
+              <th scope="col">Jugadores</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor=" let p of this.reservas">
+              <td>{{p.fecha}}</td>
+              <td>{{p.nivel}}</td>
+              <td >
+                <ul>
+                  <li *ngIf="p.jugador1 != null">Jugador 1: {{p.jugador1}}</li>
+                  <li *ngIf="p.jugador2 != null">Jugador 1: {{p.jugador2}}</li>
+                  <li *ngIf="p.jugador3 != null">Jugador 1: {{p.jugador3}}</li>
+                  <li *ngIf="p.jugador4 != null">Jugador 1: {{p.jugador4}}</li>
+                </ul>
+              </td>
+              <td>{{p.horaInicio}}</td>
+              <td  *ngIf= "p.estado=='RESERVADA'"><div class="reservada">{{p.estado}}</div></td>
+              <td  *ngIf= "p.estado=='CANCELADA'"><div class="cancelada">{{p.estado}}</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-4"  *ngIf = this.visible>
+      <div class="row">
+        <div class="col lavel_div">Partidas Canceladas :</div>
+        <input class="col form-control salida" [(ngModel)]="this.partidasCanceladas" type="txt" readonly>
+      </div>
+      <div class="row">
+        <div class="col lavel_div">
+          Total Reservadas :
+        </div>
+        <input class="col form-control salida" [(ngModel)]="this.partidasReservadas" type="txt" readonly>
+      </div>
+      <div class="row">
+        <div class="col lavel_div">
+          Partidas Totales:
+        </div>
+        <input class="col form-control salida" [(ngModel)]="this.partidasTotales" type="txt" readonly>
+      </div>
+      <div class="row" style="text-align:center;">
+        <button class="btn btn-primary" style="width: 200px;margin: auto 0;" (click)="exportar()">Exportar</button>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+</div>

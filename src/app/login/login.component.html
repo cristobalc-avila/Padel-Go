@@ -1,0 +1,36 @@
+
+<form [formGroup]="formLogin" (ngSubmit)="login()">
+    <!-- Email input -->
+    <img id="logoLogin" src="../assets/PadelGo.jpeg">
+    <br>
+    <div class="form-outline mb-4">
+      <label class="form-label loginLabel" >Correo Electrónico</label>
+      <input formControlName="email" type="email"  class="form-control loginInput" placeholder="francisco@lizana.cl"/>  
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <label class="form-label loginLabel" >Contraseña</label>
+      <input formControlName="password" type="password" class="form-control loginInput" placeholder="**********" />
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4 text-center" >
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value=""  checked />
+          <label class="form-check-label" for="form2Example31"> Recuerdame </label>
+        </div>
+      </div>
+ 
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4 loginLabel">Ingresar</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>¿No eres un miembro? <a href="#!" routerLink="/registro">Registrate</a></p>
+    </div>
+  </form>

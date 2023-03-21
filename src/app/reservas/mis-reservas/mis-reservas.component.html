@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="mt-3 ms-5 me-5">
+    <p>Tienes las siguientes reservas:</p>
+    <div class="col-12 col-sm-8 col-lg-5 col-xl-5">
+      <a type="button" class="btn btn-primary" routerLink="/reservas"> volver</a>
+  </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cancha</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reserva of this.misReservas; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>Cancha {{reserva.idCancha}}</td>
+            <td>{{reserva.fecha}}</td>
+            <td>{{reserva.horaInicio}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteReserva(reserva.id, reserva.jugador1)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+<app-footer></app-footer>

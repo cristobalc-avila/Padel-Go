@@ -1,0 +1,66 @@
+.divReserva{
+  align-items: center;
+  background-color: rgb(226, 227, 229);
+  padding-top: 10px;
+  padding-bottom: 4px;
+  padding-left: 2px;
+  color:black;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.lavel_div{
+  text-align: center;
+  font-size: 20px;
+  margin: 50px 24px 24px 2px;
+}
+
+.btnDrop{
+  background-color: white;
+}
+.img-center{
+  position:relative;
+  width:100%;
+  top:0px;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+  .salida{
+    text-align: center;
+    margin: 50px 24px 40px 2px;
+    width: 90px;
+    height:30px;
+  }
+th{
+
+  text-align:center;
+  background-color:rgb(12,110,253);
+  color:white;
+}
+tr{
+  text-align: center;
+  transition: transform 0.3s ease-in-out 0.1s
+}
+tbody tr:hover{
+  box-shadow: gray 5px 5px 10px;
+}
+img{
+  transform: scale(1.1);
+}
+
+
+.reservada {
+  background-color: green;
+  border-radius: 5px;
+  color:white;
+}
+.cancelada {
+  background-color: red;
+  border-radius: 5px;
+  color:white;
+}

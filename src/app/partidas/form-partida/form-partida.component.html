@@ -1,0 +1,44 @@
+<div class="col-md-12">
+    <app-header></app-header>
+    <div class="mt-3 ms-5 me-5">
+        <h2>Crea tú partida personalizada</h2>
+        <div class="container mt-4 ms-0">
+            <div class="row">
+                <div class="col-12 col-lg-8 col-xl-7">
+                    <div class="row pt-2 pb-2">
+                        <p class="fs-5 fst-italic mb-md-3"><b>Para crear tu partida personalizada te invitamos a llenar nuestro formulario con los detalles de tu partida y al presionar el botón de siguiente escoger la fecha, la cancha y el horario que mas te convenga:</b></p>
+                            <form action="" class="form-group row">
+                                <label for="Categoria" class="col-12 col-sm-4 col-md-2 col-lg-1 mb-sm-2 col-form-label" style="width:95px;font-size:large;"><b>Categoría:</b></label>
+                                <div class="col-12 col-sm-8 col-md-4 col-lg-4 mb-sm-2">
+                                    <select class="form-select" id="Categoria" name="Categoria" [(ngModel)]="this.categoria">
+                                        <option value="masculino">Masculino</option>
+                                        <option value="femenino">Femenino</option> 
+                                        <option value="mixto">Mixto</option>
+                                    </select>
+                                </div>
+                                <label for="Nivel" class="col-12 col-sm-4 col-md-2 col-lg-1 ms-sm-4 col-form-label" style="width:70px;font-size:large;"><b>Nivel:</b></label>
+                                <div class="col-12 col-sm-8 col-md-4 col-lg-4 mb-3">
+                                    <select class="form-select" id="Nivel" name="Nivel" [(ngModel)]="this.nivel">
+                                        <option value="6">Sexta</option>
+                                        <option value="5">Quinta</option>
+                                        <option value="4">Cuarta</option>
+                                        <option value="3">Tercera</option>
+                                        <option value="1">Open</option>
+                                      </select>
+                                </div>
+                                <a routerLink="/reserva-partida" (click)="reservarPartida()" href="reserva-partida" class="col-12 col-sm-4 col-md-3 m-2 m-sm-3 btn btn-primary " type="submit">Crear Partida</a>
+                                <a routerLink="/partida" class="col-12 col-sm-4 col-md-3 m-2 m-sm-3 btn btn-secondary">Volver Atrás</a>
+                            </form> 
+                    </div>
+                </div>
+    
+                <div class="d-none d-lg-block col-12 col-lg-4 col-xl-5 ">
+                    <img src="../../../assets/FormularioImg.jpg" width="350px">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <app-footer></app-footer>
+</div>

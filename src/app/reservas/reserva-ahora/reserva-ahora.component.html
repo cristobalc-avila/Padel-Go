@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <app-header></app-header>
+    <div class="mt-3 ms-5 me-5">
+        <h3>Reserva Ahora</h3>
+        <div class="container ms-4 mt-3">
+            <div class="row ">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5">
+                    <div class="col-12">
+                        <p class="fs-5 fst-italic"><b>Datos de mi reserva (Estos datos serán enviados a mi correo asociado a Padel-Go): </b></p>
+                        <p style="font-size: large;"><b>Fecha:</b> {{this.reservaService.info_cancha.data.fecha}}</p>
+                        <p style="font-size: large;"><b>Cancha:</b> {{this.reservaService.info_cancha.data.cancha}}</p>
+                        <p style="font-size: large;"><b>Hora:</b> {{this.reservaService.info_cancha.data.horario}}</p>
+                        <p *ngIf="this.cookie.check('categoria');" style="font-size: large;"><b>Categoria:</b> {{this.cookie.get('categoria')}}</p>
+                        <p *ngIf="this.cookie.check('categoria');" style="font-size: large;"><b>Nivel:</b> {{this.cookie.get('nivel')}}</p>
+                    </div>
+                    <div class="col-12">
+                        <button (click)="reservarAhora()" class="btn btn-primary col-7 col-sm-6 col-md-6 col-xl-4 mb-2 mb-sm-0 me-sm-1 me-md-2 me-xl-4" type="submit">Reservar Ahora</button>
+                        <button *ngIf="!this.cookie.check('categoria');" class="btn btn-danger col-7 col-sm-5 col-md-5 col-xl-4" type="submit" routerLink="/reservas" >Volver atrás</button>
+                        <button *ngIf="this.cookie.check('categoria');" class="btn btn-danger col-7 col-sm-5 col-md-5 col-xl-4" type="submit" routerLink="/reserva-partida" >Volver atrás</button>
+                    </div>
+                </div>
+                <div class="d-none d-sm-block col-12 col-sm-4 col-md-6 col-lg-7">
+                    <img src="../../../assets/FormularioImg.jpg" width="300px">
+                </div>
+            </div>
+  
+            
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,103 @@
+<div class="col-md-12">
+  <app-header-admin></app-header-admin>
+  <div class="mt-3 ms-5 me-5">
+  <div style="margin-left: 30px">
+    <h1 style="text-align:center">Estadísticas Generales</h1>
+    <hr style="color:rgb(12,110,253); height:2px" >
+  </div>
+
+  <div class="row">
+    <div class="col" ALIGN="center">
+      <h3>Reservas</h3>
+      <br>
+      <div class="row circulo" >
+        <img src="../../../../assets/pregunata.png">
+
+      </div>
+      <br><br>
+      <table class="table table-bordered table-striped mb-0 c" style="width:90%" >
+        <thead>
+          <tr>
+            <th scope="col">Estados</th>
+            <th scope="col">Totales</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let fila of this.estados">
+            <td>{{fila.estado}}</td>
+            <td>{{fila.cantidad}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="linea"></div>
+
+    <div class="col" ALIGN="center">
+      <h3>Horarios más incurridos</h3>
+      <br><br>
+      <div class="row circulo">
+        <img src="../../../../assets/calendario.png">
+      </div>
+      <br>
+      <table class="table table-bordered table-striped mb-0 c" style="width:90%">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let fila of this.horarios">
+            <td>{{fila.fecha}}</td>
+            <td>{{fila.cantidad}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="linea"></div>
+
+    <div class="col" ALIGN="center">
+      <h3>Reservas por canchas</h3>
+      <br>
+      <div class="row circulo">
+        <img src="../../../../assets/cancha.png">
+      </div>
+      <br><br>
+      <table class="table table-bordered table-striped mb-0 c" style="width:90%">
+        <thead>
+          <tr>
+            <th scope="col">Cancha</th>
+            <th scope="col">Totales</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <td>{{this.canchas[0].cancha}}</td>
+            <td>{{this.canchas[0].cantidad}}</td>
+          </tr>
+          <tr *ngFor="let p of this.api.cancha.slice(1,this.api.canchas.length)">
+            <td>{{p.cancha}}</td>
+            <td>{{p.cantidad}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <br>  <br>  <br>
+  <div id="logo-contenedor" style="margin-left: 45%">
+    <img  src="../../../../assets/ojo.png"  style="width:15%; height:15%" id="imagen1">
+    <div class="col">
+      <h1>Visitantes </h1> <h1 class="text-muted" style="margin-left:10%">{{this.api.visitas}}</h1>
+      <!--<h4 class="liza" style="width: 20%; height:5%;text-align:center ">Visitantes</h4>
+      <h4 style="width: 20%; height:5%; text-align:center"> </h4>-->
+    </div>
+
+  </div>
+  <app-footer></app-footer>
+</div>
+</div>

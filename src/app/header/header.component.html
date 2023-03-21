@@ -1,0 +1,64 @@
+  <!-------------------------------------------------------------->
+  <!--------------------------- Header --------------------------->
+  <!-------------------------------------------------------------->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-2">
+        <img src="../assets/PadelGo.jpeg" class="logo">
+      </div>
+      <div class="col-12 col-md-6">
+        <!-- botones -->
+        <div class="row mb-4 mb-lg-0" style="width: 70%;position:relative;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);
+                                              transform: translate(-50%, -50%);margin:auto;" *ngIf="!this.loginService.loggedIn()">
+          <div class="col-6">
+            <button class="btn btn-primary" routerLink="/registro" id="btn-center">
+              Registrarse
+            </button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-primary" id="btn-center" routerLink="/login">
+              Ingresar
+            </button>
+          </div>
+        </div>
+        <div class="row mt-5" *ngIf="this.loginService.loggedIn()">
+          <div class="col-0 col-lg-5  col-xxl-6 "></div>
+          <div class="col-12  col-md-8 col-lg-6  col-xxl-4 d-inline-flex mb-3 mb-lg-0" style="width:190px">
+            <img class="me-2" src="https://img.icons8.com/office/40/000000/gender-neutral-user.png" />
+            <h2>{{this.usuarioService.usuario[0].nombre}}</h2>
+          </div>
+          <div class="col-12 col-md-3 col-lg-3 col-xxl-2 mb-3 mb-lg-0">
+            <button class="btn btn-primary" (click)="logOut()">
+              Salir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-------------------------------------------------------------->
+  <!--------------------------- Navbar --------------------------->
+  <!-------------------------------------------------------------->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Padel GO</a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/home"> Inicio </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/reservas"> Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/partida"> Partidas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

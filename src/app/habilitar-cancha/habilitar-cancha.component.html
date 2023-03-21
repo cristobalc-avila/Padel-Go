@@ -1,0 +1,36 @@
+<div class="col-md-12">
+  <app-header-admin></app-header-admin>
+  <br>
+  <div style="margin-left: 30px">
+      <h2>Mis Canchas</h2>
+  </div>
+  <br>
+  <div class="row">
+      <div *ngFor="let cancha of this.canchaService.canchas" class="col" style="text-align: center;">
+          <h3>{{cancha.nombre}}</h3>
+          <img *ngIf="cancha.estado=='DISPONIBLE'" src="../../assets/CanchaDePadel.png" alt="" class="img-center">
+          <img *ngIf="cancha.estado=='NO DISPONIBLE'" src="../../assets/CanchaDePadelGris.png" alt="" class="img-center">
+          <button *ngIf="cancha.estado=='DISPONIBLE'" type="button" class="btn btn-danger" (click)="desabilitarCancha(cancha.id)">Deshabilitar</button>
+          <button *ngIf="cancha.estado=='NO DISPONIBLE'" type="button" class="btn btn-success" (click)="habilitarCancha(cancha.id)">Habilitar</button>
+      </div>
+  </div>
+
+  <!--
+      <div style="margin: top 350px;;margin-bottom: 150px;">
+      <div class="row" style="margin-left: 500px; margin-top: 50px;float: left">
+          <div class="row" style="background-color: green;width: 15px;height: 25px; "></div>
+          <p class="row" style="margin-left: 10px">Disponible</p>
+      </div>
+      <div class="row" style="margin-left: 200px; margin-top: 50px;float: left">
+          <div class="row" style="background-color: red;width: 15px;height: 25px;"></div>
+          <p class="row" style="margin-left: 10px">Ocupado</p>
+      </div>
+      <div class="row" style="margin-left: 200px; margin-top: 50px;float:left">
+          <div class="row" style="background-color: yellow;width: 15px;height: 25px;"></div>
+          <p class="row" style="margin-left: 10px;">Mis reservas</p>
+      </div>
+  </div>
+  -->
+
+  <app-footer></app-footer>
+</div>
